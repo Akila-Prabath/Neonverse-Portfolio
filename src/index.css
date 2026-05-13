@@ -6,7 +6,7 @@ html {
 
 body {
   margin: 0;
-  background: #050816;
+  background: #04070f;
   color: white;
   font-family: Inter, sans-serif;
   overflow-x: hidden;
@@ -14,4 +14,14 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at top left, rgba(124, 58, 237, 0.15), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.15), transparent 30%);
+  z-index: -1;
 }
