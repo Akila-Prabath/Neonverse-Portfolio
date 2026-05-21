@@ -1,6 +1,9 @@
 import Navbar from "./components/navbar/Navbar"
 import SocialSidebar from "./components/common/SocialSidebar"
+
 import Hero from "./sections/Hero"
+import About from "./sections/About"
+import Skills from "./sections/Skills"
 
 const App = () => {
   return (
@@ -11,6 +14,10 @@ const App = () => {
       <SocialSidebar />
 
       <Hero />
+
+      <About />
+
+      <Skills />
 
     </main>
   )
