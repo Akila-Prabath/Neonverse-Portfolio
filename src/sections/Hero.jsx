@@ -6,7 +6,7 @@ import ScrollIndicator from "../components/common/ScrollIndicator"
 
 const Hero = () => {
     return (
-        <section className="relative min-h-screen flex items-center pt-8 px-6 md:px-10 overflow-hidden">
+        <section id="home" className="relative min-h-screen flex items-center pt-8 px-6 md:px-10 overflow-hidden">
 
             <Particles />
 

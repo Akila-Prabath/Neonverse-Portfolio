@@ -165,14 +165,14 @@ const Skills = () => {
         })
     }
     return (
-        <section className="relative min-h-screen py-12 overflow-hidden flex items-center">
+        <section id="skills" className="relative min-h-screen py-10 md:px-20 overflow-hidden flex items-center">
 
             {/* Background Glow */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-purple-500/10 blur-[150px] rounded-full"></div>
 
-            <div className="max-w-[1450px] mx-auto px-6 lg:px-10 w-full">
+            <div className="max-w-[1500px] mx-auto px-6 lg:px-10 w-full">
 
-                <div className="grid lg:grid-cols-[0.78fr_1.22fr] gap-10 items-start">
+                <div className="grid lg:grid-cols-[0.78fr_1.22fr] gap-10 items-start ">
 
                     {/* LEFT SIDE */}
                     <motion.div

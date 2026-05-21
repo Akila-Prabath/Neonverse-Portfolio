@@ -10,12 +10,73 @@ const Navbar = () => {
 
         {/* Nav Links */}
         <ul className="hidden md:flex items-center gap-10 text-sm font-medium text-white/80">
-          <li className="text-cyan-400">HOME</li>
-          <li>ABOUT</li>
-          <li>PROJECTS</li>
-          <li>SKILLS</li>
-          <li>EXPERIENCE</li>
-          <li>CONTACT</li>
+
+          <li>
+            <a
+              href="#home"
+              className="relative hover:text-cyan-400 transition duration-300 group"
+            >
+              HOME
+
+              <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="#about"
+              className="relative hover:text-purple-400 transition duration-300 group"
+            >
+              ABOUT
+
+              <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-purple-400 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="#projects"
+              className="relative hover:text-cyan-400 transition duration-300 group"
+            >
+              PROJECTS
+
+              <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="#skills"
+              className="relative hover:text-purple-400 transition duration-300 group"
+            >
+              SKILLS
+
+              <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-purple-400 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="#experience"
+              className="relative hover:text-cyan-400 transition duration-300 group"
+            >
+              EXPERIENCE
+
+              <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="#contact"
+              className="relative hover:text-purple-400 transition duration-300 group"
+            >
+              CONTACT
+
+              <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-purple-400 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          </li>
+
         </ul>
 
         {/* Status */}
