@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { Outlet } from 'react-router-dom'
 import Lenis from 'lenis'
 import Navbar from '../components/navbar/Navbar'
+import Footer from '../components/common/Footer'
 
 export default function MainLayout() {
   const lenisRef = useRef(null)
@@ -17,10 +18,7 @@ export default function MainLayout() {
     lenisRef.current = lenis
 
     let rafId
-    function raf(time) {
-      lenis.raf(time)
-      rafId = requestAnimationFrame(raf)
-    }
+    function raf(time) { lenis.raf(time); rafId = requestAnimationFrame(raf) }
     rafId = requestAnimationFrame(raf)
     window.__lenis = lenis
 
@@ -34,9 +32,8 @@ export default function MainLayout() {
   return (
     <div className="layout-root">
       <Navbar />
-      <main>
-        <Outlet />
-      </main>
+      <main><Outlet /></main>
+      <Footer />
     </div>
   )
 }
