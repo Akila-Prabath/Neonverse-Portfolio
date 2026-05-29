@@ -1,0 +1,103 @@
+/* ============================================================
+   Projects Section
+   ============================================================ */
+
+.projects {
+  position: relative;
+  overflow: hidden;
+}
+
+.projects::before {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  left: -10%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(0, 255, 136, 0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* --- Filters --- */
+.projects__filters {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-10);
+}
+
+.projects__filter {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--clr-text-secondary);
+  padding: var(--space-2) var(--space-5);
+  border: 1px solid var(--clr-border-subtle);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-base);
+}
+
+.projects__filter:hover {
+  color: var(--clr-text-primary);
+  border-color: var(--clr-border-default);
+}
+
+.projects__filter--active {
+  color: var(--clr-accent);
+  background: var(--clr-accent-muted);
+  border-color: var(--clr-accent-border);
+}
+
+.projects__filter-count {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--clr-text-muted);
+  background: var(--clr-bg-elevated);
+  border-radius: var(--radius-full);
+  padding: 1px 6px;
+  min-width: 20px;
+  text-align: center;
+  transition: color var(--transition-fast);
+}
+.projects__filter--active .projects__filter-count {
+  color: var(--clr-accent);
+  background: var(--clr-accent-muted);
+}
+
+/* --- Grid --- */
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+  margin-bottom: var(--space-16);
+}
+
+/* --- GitHub CTA --- */
+.projects__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--clr-border-subtle);
+}
+
+.projects__cta p {
+  font-size: var(--fs-md);
+  color: var(--clr-text-secondary);
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .projects__grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .projects__filters { gap: var(--space-2); }
+  .projects__filter  { font-size: var(--fs-xs); padding: var(--space-1) var(--space-4); }
+  .projects__cta     { flex-direction: column; text-align: center; gap: var(--space-4); }
+}
