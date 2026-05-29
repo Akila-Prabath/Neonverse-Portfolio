@@ -1,221 +1,181 @@
-import { ArrowUpRight, User } from "lucide-react"
-import { motion } from "framer-motion"
+import { useEffect, useRef, useState } from 'react'
+import { motion } from 'framer-motion'
+import ParticleField from '../components/three/ParticleField'
+import './Hero.css'
 
-import Particles from "../components/common/Particles"
-import ScrollIndicator from "../components/common/ScrollIndicator"
+const ROLES = [
+  'Software Engineer',
+  'Full-Stack Developer',
+  'UI/UX Enthusiast',
+  'Open Source Contributor',
+]
 
-const Hero = () => {
-    return (
-        <section id="home" className="relative min-h-screen flex items-center pt-8 px-6 md:px-10 overflow-hidden">
-
-            <Particles />
-
-            <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-16 items-center">
-
-                {/* Left */}
-                <motion.div
-                    initial={{ opacity: 0, y: 60 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-                >
-
-                    <p className="uppercase tracking-[0.3em] bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-2 text-sm">
-                        Hello, I'm
-                    </p>
-
-                    <h1 className="text-5xl md:text-7xl font-black leading-tight mb-3">
-                        <span className="bg-gradient-to-r from-purple-500 to-cyan-400 bg-clip-text text-transparent">
-                            Akila Prabath
-                        </span>
-                    </h1>
-
-                    <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-3">
-                        I build immersive <br />
-                        <span className="mr-3">
-                            web
-                        </span>
-                        <span className="bg-gradient-to-r from-purple-500 to-cyan-400 bg-clip-text text-transparent">
-                            experiences.
-                        </span>
-                    </h2>
-
-                    <p className="text-white/60 text-md max-w-xl leading-relaxed mb-4">
-                        Frontend developer passionate about creating beautiful,
-                        interactive and high-performance web applications.
-                    </p>
-
-                    {/* Buttons */}
-                    <div className="flex flex-wrap gap-5">
-
-                        <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            className="px-5 py-3 rounded-lg bg-gradient-to-r from-purple-600 to-cyan-500 flex items-center gap-3 text-sm font-medium shadow-[0_0_40px_rgba(59,130,246,0.35)]"
-                        >
-                            VIEW MY WORK
-                            <ArrowUpRight size={20} />
-                        </motion.button>
-
-                        <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            className="px-5 py-3 rounded-lg border border-white/10 flex items-center gap-3 text-sm font-medium hover:bg-white/5 transition"
-                        >
-                            ABOUT ME
-                            <User size={18} />
-                        </motion.button>
-
-                    </div>
-
-                </motion.div>
-
-
-                {/* Right */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.7 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1.2 }}
-                    className="relative flex justify-center items-center h-[720px]"
-                >
-
-                    {/* Main Background Glow */}
-                    <div className="absolute w-[700px] h-[700px] bg-purple-600/20 blur-[160px] rounded-full"></div>
-
-                    {/* Smoke Glow */}
-                    <div className="absolute w-[420px] h-[420px] bg-cyan-500/10 blur-[120px] rounded-full"></div>
-
-                    {/* Platform Back */}
-                    <div className="absolute bottom-24 w-[420px] h-[60px] rounded-full bg-[#151528] border border-white/5 shadow-[0_0_40px_rgba(168,85,247,0.25)]"></div>
-
-                    {/* Platform Front */}
-                    <div className="absolute bottom-16 w-[500px] h-[90px] rounded-full bg-gradient-to-r from-[#111827] to-[#1f2937] border border-cyan-500/10 shadow-[0_0_60px_rgba(59,130,246,0.25)] overflow-hidden">
-
-                        {/* Neon Line */}
-                        <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-cyan-400 to-purple-500 blur-sm"></div>
-
-                    </div>
-
-                    {/* Rocks */}
-                    <div className="absolute bottom-28 flex items-end gap-[-20px] z-20">
-
-                        <div className="w-32 h-28 bg-[#161616] rounded-[40%] rotate-[-12deg] shadow-[0_0_30px_rgba(168,85,247,0.2)]"></div>
-
-                        <div className="w-44 h-40 bg-[#1a1a1a] rounded-[42%] rotate-[8deg] -ml-10 shadow-[0_0_40px_rgba(168,85,247,0.3)]"></div>
-
-                        <div className="w-36 h-32 bg-[#121212] rounded-[38%] rotate-[-6deg] -ml-10 shadow-[0_0_35px_rgba(168,85,247,0.25)]"></div>
-
-                    </div>
-
-                    {/* Portal */}
-                    <motion.div
-                        animate={{
-                            y: [0, -15, 0],
-                        }}
-                        transition={{
-                            duration: 5,
-                            repeat: Infinity,
-                        }}
-                        className="relative z-10 w-[260px] h-[520px]"
-                    >
-
-                        {/* Portal Outer Glow */}
-                        <div className="absolute inset-0 rounded-[6px] border-[6px] border-purple-300 shadow-[0_0_70px_rgba(192,132,252,0.9)]"></div>
-
-                        {/* Portal Inner */}
-                        <div className="absolute inset-[14px] bg-[#050816]/70 backdrop-blur-xl overflow-hidden">
-
-                            {/* Stars */}
-                            <div className="absolute inset-0">
-
-                                {[...Array(30)].map((_, i) => (
-                                    <span
-                                        key={i}
-                                        className="absolute bg-white rounded-full"
-                                        style={{
-                                            width: `${Math.random() * 3 + 1}px`,
-                                            height: `${Math.random() * 3 + 1}px`,
-                                            top: `${Math.random() * 100}%`,
-                                            left: `${Math.random() * 100}%`,
-                                            opacity: Math.random(),
-                                        }}
-                                    />
-                                ))}
-
-                            </div>
-
-                            {/* Smoke */}
-                            <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-cyan-500/20 to-transparent blur-2xl"></div>
-
-                            <div className="absolute bottom-10 left-10 w-32 h-32 bg-purple-500/20 blur-[80px] rounded-full"></div>
-
-                        </div>
-
-                    </motion.div>
-
-                    {/* Left Floating Crystal */}
-                    <motion.div
-                        animate={{
-                            y: [0, -15, 0],
-                            rotate: [0, 12, 0],
-                        }}
-                        transition={{
-                            duration: 6,
-                            repeat: Infinity,
-                        }}
-                        className="absolute left-12 top-40 w-24 h-24 rotate-12 bg-gradient-to-br from-[#3b82f6] via-[#8b5cf6] to-[#ec4899] rounded-2xl opacity-70 shadow-[0_0_40px_rgba(139,92,246,0.5)]"
-                    />
-
-                    {/* Small Cube */}
-                    <motion.div
-                        animate={{
-                            y: [0, 12, 0],
-                            rotate: [0, -15, 0],
-                        }}
-                        transition={{
-                            duration: 5,
-                            repeat: Infinity,
-                        }}
-                        className="absolute right-24 top-96 w-12 h-12 rotate-12 bg-gradient-to-br from-cyan-400 to-purple-500 rounded-xl shadow-[0_0_30px_rgba(59,130,246,0.6)]"
-                    />
-
-                    {/* Floating Sphere */}
-                    <motion.div
-                        animate={{
-                            y: [0, 20, 0],
-                        }}
-                        transition={{
-                            duration: 4,
-                            repeat: Infinity,
-                        }}
-                        className="absolute right-0 top-28 w-36 h-36 rounded-full bg-gradient-to-br from-cyan-400 via-purple-500 to-pink-500 shadow-[0_0_70px_rgba(59,130,246,0.7)]"
-                    />
-
-                    {/* Floating Mini Orbs */}
-                    <div className="absolute top-56 left-52 w-5 h-5 rounded-full bg-cyan-400 shadow-[0_0_20px_rgba(59,130,246,0.9)]"></div>
-
-                    <div className="absolute top-72 left-12 w-3 h-3 rounded-full bg-purple-400 shadow-[0_0_20px_rgba(168,85,247,0.9)]"></div>
-
-                    <div className="absolute top-80 left-72 w-4 h-4 rounded-full bg-cyan-400 shadow-[0_0_20px_rgba(59,130,246,0.9)]"></div>
-
-                    {/* Ring */}
-                    <motion.div
-                        animate={{
-                            rotate: 360,
-                        }}
-                        transition={{
-                            duration: 18,
-                            repeat: Infinity,
-                            ease: "linear",
-                        }}
-                        className="absolute bottom-6 right-8 w-44 h-44 border-[18px] border-purple-500 rounded-full shadow-[0_0_50px_rgba(168,85,247,0.6)]"
-                    />
-
-                </motion.div>
-
-            </div>
-
-            <ScrollIndicator />
-
-        </section>
-    )
+const FADE_UP = {
+  hidden:  { opacity: 0, y: 32 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.75, ease: [0.4, 0, 0.2, 1], delay },
+  }),
 }
 
-export default Hero
+/**
+ * Hero section
+ * - Three.js particle field background
+ * - Typewriter role cycling
+ * - Framer Motion staggered entrance
+ * - CTA buttons + scroll hint
+ */
+export default function Hero() {
+  const [roleIdx, setRoleIdx]   = useState(0)
+  const [displayed, setDisplayed] = useState('')
+  const [deleting,  setDeleting]  = useState(false)
+  const timeoutRef = useRef(null)
+
+  /* Typewriter effect */
+  useEffect(() => {
+    const full = ROLES[roleIdx]
+
+    if (!deleting && displayed.length < full.length) {
+      timeoutRef.current = setTimeout(() => {
+        setDisplayed(full.slice(0, displayed.length + 1))
+      }, 68)
+    } else if (!deleting && displayed.length === full.length) {
+      timeoutRef.current = setTimeout(() => setDeleting(true), 2200)
+    } else if (deleting && displayed.length > 0) {
+      timeoutRef.current = setTimeout(() => {
+        setDisplayed(full.slice(0, displayed.length - 1))
+      }, 34)
+    } else if (deleting && displayed.length === 0) {
+      setDeleting(false)
+      setRoleIdx((i) => (i + 1) % ROLES.length)
+    }
+
+    return () => clearTimeout(timeoutRef.current)
+  }, [displayed, deleting, roleIdx])
+
+  const scrollTo = (id) => {
+    const el = document.getElementById(id)
+    if (!el) return
+    if (window.__lenis) window.__lenis.scrollTo(el, { offset: -80, duration: 1.4 })
+    else el.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  return (
+    <section className="hero" id="hero">
+      {/* 3D background */}
+      <ParticleField />
+
+      {/* Radial glow centre */}
+      <div className="hero__glow" aria-hidden="true" />
+
+      {/* Grid overlay */}
+      <div className="hero__grid" aria-hidden="true" />
+
+      <div className="hero__content container">
+
+        {/* Greeting */}
+        <motion.p
+          className="hero__greeting"
+          variants={FADE_UP}
+          initial="hidden"
+          animate="visible"
+          custom={0.1}
+        >
+          <span className="hero__greeting-line" />
+          Hi there, I'm
+        </motion.p>
+
+        {/* Name */}
+        <motion.h1
+          className="hero__name"
+          variants={FADE_UP}
+          initial="hidden"
+          animate="visible"
+          custom={0.3}
+        >
+          Akila Prabath
+        </motion.h1>
+
+        {/* Typewriter role */}
+        <motion.div
+          className="hero__role"
+          variants={FADE_UP}
+          initial="hidden"
+          animate="visible"
+          custom={0.5}
+          aria-label={`Role: ${ROLES[roleIdx]}`}
+        >
+          <span className="hero__role-prefix">{'> '}</span>
+          <span className="hero__role-text">{displayed}</span>
+          <span className="hero__cursor" aria-hidden="true" />
+        </motion.div>
+
+        {/* Bio */}
+        <motion.p
+          className="hero__bio"
+          variants={FADE_UP}
+          initial="hidden"
+          animate="visible"
+          custom={0.65}
+        >
+          Final year Software Engineering undergraduate at the University of Sri Jayewardenepura.
+          I build performant, accessible web experiences and love turning complex problems
+          into elegant solutions.
+        </motion.p>
+
+        {/* CTAs */}
+        <motion.div
+          className="hero__cta"
+          variants={FADE_UP}
+          initial="hidden"
+          animate="visible"
+          custom={0.8}
+        >
+          <button className="btn btn--primary" onClick={() => scrollTo('projects')}>
+            View Projects
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+          <button className="btn btn--ghost" onClick={() => scrollTo('contact')}>
+            Get In Touch
+          </button>
+        </motion.div>
+
+        {/* Social links */}
+        <motion.div
+          className="hero__socials"
+          variants={FADE_UP}
+          initial="hidden"
+          animate="visible"
+          custom={0.95}
+        >
+          <a href="https://github.com/Akila-Prabath" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/akila-prabath" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="mailto:akilaprabath@email.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </a>
+        </motion.div>
+      </div>
+
+      {/* Scroll hint */}
+      <motion.div
+        className="hero__scroll-hint"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.6, duration: 1 }}
+        aria-hidden="true"
+      >
+        <span>Scroll</span>
+        <div className="hero__scroll-mouse">
+          <div className="hero__scroll-dot" />
+        </div>
+      </motion.div>
+    </section>
+  )
+}

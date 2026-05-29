@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@import "./styles/variables.css";
+@import "./styles/animations.css";
+@import "./styles/globals.css";
 
 html {
   scroll-behavior: smooth;
@@ -8,8 +11,10 @@ body {
   margin: 0;
   background: #04070f;
   color: white;
-  font-family: Inter, sans-serif;
+  font-family: "Inter", "Outfit", system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
@@ -24,13 +29,28 @@ body::before {
     radial-gradient(circle at top left, rgba(124, 58, 237, 0.15), transparent 30%),
     radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.15), transparent 30%);
   z-index: -1;
-}
-
-html {
-  scroll-behavior: smooth;
+  pointer-events: none;
 }
 
 /* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.04);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #a855f7, #22d3ee);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  opacity: 0.8;
+}
+
+/* Custom Scrollbar (inner containers) */
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
 }
@@ -43,10 +63,6 @@ html {
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background: linear-gradient(to bottom, #a855f7, #22d3ee);
   border-radius: 999px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  opacity: 0.8;
 }
 
 /* Hide Scrollbar */

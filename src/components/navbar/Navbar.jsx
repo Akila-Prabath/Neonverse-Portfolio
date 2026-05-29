@@ -1,93 +1,135 @@
-const Navbar = () => {
+import { useState, useEffect, useCallback } from 'react'
+import { navLinks } from '../../constants/navLinks'
+import './Navbar.css'
+
+/**
+ * Navbar
+ * - Transparent on top, solid on scroll
+ * - Smooth-scroll to section on link click (works with Lenis)
+ * - Hamburger menu for mobile
+ * - Active section highlight via IntersectionObserver
+ */
+export default function Navbar() {
+  const [scrolled,   setScrolled]   = useState(false)
+  const [menuOpen,   setMenuOpen]   = useState(false)
+  const [activeId,   setActiveId]   = useState('')
+
+  /* --- Scroll state for navbar bg --- */
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  /* --- Active section via IntersectionObserver --- */
+  useEffect(() => {
+    const targets = navLinks
+      .map(({ id }) => document.getElementById(id))
+      .filter(Boolean)
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveId(entry.target.id)
+        })
+      },
+      { rootMargin: '-40% 0px -55% 0px' }
+    )
+
+    targets.forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+
+  /* --- Close menu on resize to desktop --- */
+  useEffect(() => {
+    const onResize = () => { if (window.innerWidth >= 768) setMenuOpen(false) }
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
+
+  /* --- Smooth scroll via Lenis (falls back to native) --- */
+  const scrollTo = useCallback((id) => {
+    setMenuOpen(false)
+    const el = document.getElementById(id)
+    if (!el) return
+    if (window.__lenis) {
+      window.__lenis.scrollTo(el, { offset: -80, duration: 1.4 })
+    } else {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }, [])
+
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-[#050816]/70 backdrop-blur-xl border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
+    <header className={`navbar${scrolled ? ' navbar--scrolled' : ''}`}>
+      <div className="navbar__inner container">
 
         {/* Logo */}
-        <div className="text-4xl font-black bg-gradient-to-r from-purple-500 to-cyan-400 bg-clip-text text-transparent">
-          A
-        </div>
+        <button
+          className="navbar__logo"
+          onClick={() => window.__lenis?.scrollTo(0) ?? window.scrollTo({ top: 0, behavior: 'smooth' })}
+          aria-label="Scroll to top"
+        >
+          <span className="navbar__logo-bracket">&lt;</span>
+          Akila
+          <span className="navbar__logo-accent">.</span>
+          <span className="navbar__logo-bracket">/&gt;</span>
+        </button>
 
-        {/* Nav Links */}
-        <ul className="hidden md:flex items-center gap-10 text-sm font-medium text-white/80">
-
-          <li>
-            <a
-              href="#home"
-              className="relative hover:text-cyan-400 transition duration-300 group"
+        {/* Desktop links */}
+        <nav className="navbar__links" aria-label="Primary navigation">
+          {navLinks.map(({ id, label }) => (
+            <button
+              key={id}
+              className={`navbar__link${activeId === id ? ' navbar__link--active' : ''}`}
+              onClick={() => scrollTo(id)}
             >
-              HOME
+              {label}
+            </button>
+          ))}
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="navbar__resume"
+          >
+            Resume
+          </a>
+        </nav>
 
-              <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="#about"
-              className="relative hover:text-purple-400 transition duration-300 group"
-            >
-              ABOUT
-
-              <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-purple-400 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="#projects"
-              className="relative hover:text-cyan-400 transition duration-300 group"
-            >
-              PROJECTS
-
-              <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="#skills"
-              className="relative hover:text-purple-400 transition duration-300 group"
-            >
-              SKILLS
-
-              <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-purple-400 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="#experience"
-              className="relative hover:text-cyan-400 transition duration-300 group"
-            >
-              EXPERIENCE
-
-              <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="#contact"
-              className="relative hover:text-purple-400 transition duration-300 group"
-            >
-              CONTACT
-
-              <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-purple-400 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-          </li>
-
-        </ul>
-
-        {/* Status */}
-        <div className="hidden md:flex items-center gap-2 border border-white/10 rounded-full px-5 py-2 text-sm">
-          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-          Available for Work
-        </div>
-
+        {/* Hamburger */}
+        <button
+          className={`navbar__hamburger${menuOpen ? ' navbar__hamburger--open' : ''}`}
+          onClick={() => setMenuOpen((v) => !v)}
+          aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+        >
+          <span /><span /><span />
+        </button>
       </div>
-    </nav>
+
+      {/* Mobile menu */}
+      <div className={`navbar__mobile${menuOpen ? ' navbar__mobile--open' : ''}`} aria-hidden={!menuOpen}>
+        <nav>
+          {navLinks.map(({ id, label }) => (
+            <button
+              key={id}
+              className={`navbar__mobile-link${activeId === id ? ' navbar__mobile-link--active' : ''}`}
+              onClick={() => scrollTo(id)}
+            >
+              <span className="navbar__mobile-num">0{navLinks.findIndex(l => l.id === id) + 1}</span>
+              {label}
+            </button>
+          ))}
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="navbar__mobile-resume"
+          >
+            Resume ↗
+          </a>
+        </nav>
+      </div>
+    </header>
   )
 }
-
-export default Navbar

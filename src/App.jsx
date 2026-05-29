@@ -1,26 +1,15 @@
-import Navbar from "./components/navbar/Navbar"
-import SocialSidebar from "./components/common/SocialSidebar"
+import { BrowserRouter } from 'react-router-dom'
+import AppRoutes from './routes/AppRoutes'
 
-import Hero from "./sections/Hero"
-import About from "./sections/About"
-import Skills from "./sections/Skills"
-
-const App = () => {
+/**
+ * App
+ * Root component. Wraps everything in BrowserRouter
+ * so routing context is available tree-wide.
+ */
+export default function App() {
   return (
-    <main className="bg-[#020617] min-h-screen text-white overflow-hidden">
-
-      <Navbar />
-
-      <SocialSidebar />
-
-      <Hero />
-
-      <About />
-
-      <Skills />
-
-    </main>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   )
 }
-
-export default App
