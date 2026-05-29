@@ -8,30 +8,38 @@
  */
 export const projects = [
   {
-    id: 'ecommerce-platform',
-    title: 'NeoShop — E-Commerce Platform',
-    shortDesc: 'Full-stack online store with real-time inventory, Stripe payments, and an admin dashboard.',
-    longDesc: `NeoShop is a production-ready e-commerce platform built to handle real-world scale.
-The frontend is a React SPA with optimistic UI updates and smooth page transitions.
-The backend is a Node.js / Express REST API backed by PostgreSQL, with Redis caching
-for hot product pages and a background job queue for order confirmations.
-
-Stripe Checkout handles all payments including webhooks for fulfillment. The admin
-dashboard gives real-time inventory control, revenue analytics, and order management
-from a single view.`,
-    tags: ['React', 'Node.js', 'PostgreSQL', 'Redis', 'Stripe', 'Docker'],
+    id: 'counseling-platform',
+    title: 'Student Counseling System',
+    shortDesc: 'A MERN stack–based Student Counseling and Mental Health Support Portal .',
+    longDesc: [
+      {
+        type: 'text',
+        content: `A full-stack MERN web application developed to provide students with accessible, confidential, and structured mental health support. The platform allows students to connect with counselors, book appointments, access wellness resources, and communicate securely through a modern digital counseling system.`,
+      },
+      {
+        type: 'features',
+        title: 'Key Features',
+        items: [
+          'Book counseling appointments.',
+          'Appointment status tracking.',
+          'Anonymous messaging support.',
+          'Access mental health resources.',
+        ],
+      },
+    ],
+    tags: ['React', 'Node.js', 'Express.js', 'MongoDB'],
     category: 'fullstack',
     featured: true,
-    liveUrl: 'https://neoshop-demo.vercel.app',
-    githubUrl: 'https://github.com/Akila-Prabath/neoshop',
-    image: '/projects/neoshop.png',
+    //liveUrl: 'https://neoshop-demo.vercel.app',
+    githubUrl: 'https://github.com/Akila-Prabath/Student-Counseling-System',
+    image: '../../public/projects/counseling.png',
     highlights: [
-      'JWT auth with refresh-token rotation',
-      'Redis cache cuts DB load by ~60%',
-      'Stripe webhooks for automated fulfillment',
-      'Dockerised for one-command local setup',
+      'JWT authentication & authorization',
+      'Password hashing using bcrypt',
+      'Protected routes & middleware',
+      'Secure environment variables',
     ],
-    year: '2024',
+    year: '2026',
   },
   {
     id: 'taskflow',
@@ -159,8 +167,8 @@ fully responsive and accessible (keyboard navigable, ARIA labelled).`,
 ]
 
 export const projectCategories = [
-  { id: 'all',      label: 'All Projects' },
+  { id: 'all', label: 'All Projects' },
   { id: 'fullstack', label: 'Full Stack' },
   { id: 'frontend', label: 'Frontend' },
-  { id: 'backend',  label: 'Backend' },
+  { id: 'backend', label: 'Backend' },
 ]

@@ -105,9 +105,32 @@ export default function ProjectDetails() {
             variants={FADE_UP} initial="hidden" animate="visible" custom={0.3}
           >
             <h2 className="pd__section-title">Overview</h2>
-            {project.longDesc.split('\n').filter(Boolean).map((para, i) => (
-              <p key={i} className="pd__para">{para.trim()}</p>
-            ))}
+            {(typeof project.longDesc === 'string'
+              ? [{ type: 'text', content: project.longDesc }]
+              : project.longDesc
+            ).map((block, i) => {
+              if (block.type === 'text') {
+                return block.content.split('\n').filter(Boolean).map((para, j) => (
+                  <p key={`${i}-${j}`} className="pd__para">{para.trim()}</p>
+                ))
+              }
+              if (block.type === 'features') {
+                return (
+                  <div key={i} className="pd__features">
+                    {block.title && <h3 className="pd__features-title">{block.title}</h3>}
+                    <ul className="pd__features-list">
+                      {block.items.map((item, k) => (
+                        <li key={k} className="pd__features-item">
+                          <span className="pd__features-bullet" aria-hidden="true">▸</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )
+              }
+              return null
+            })}
           </motion.section>
 
           {/* Sidebar */}

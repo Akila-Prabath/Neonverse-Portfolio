@@ -47,17 +47,17 @@ function SkillCard({ skill, index, inView }) {
         {Icon && <Icon aria-hidden="true" />}
       </div>
       <span className="skill-card__name">{skill.name}</span>
-      <div className="skill-card__bar-track" role="progressbar"
+      {/*<div className="skill-card__bar-track" role="progressbar"
            aria-valuenow={skill.level} aria-valuemin={0} aria-valuemax={100}
            aria-label={`${skill.name} proficiency ${skill.level}%`}>
-        <motion.div
+          <motion.div
           className="skill-card__bar-fill"
           initial={{ width: 0 }}
           animate={inView ? { width: `${skill.level}%` } : { width: 0 }}
           transition={{ duration: 0.9, ease: [0.4, 0, 0.2, 1], delay: 0.1 + 0.04 * index }}
         />
-      </div>
-      <span className="skill-card__level">{skill.level}%</span>
+      </div> */}
+      {/*<span className="skill-card__level">{skill.level}%</span>*/}
     </motion.div>
   )
 }

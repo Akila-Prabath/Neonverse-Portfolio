@@ -95,13 +95,13 @@ export default function About() {
                 <div className="about__avatar-inner">
                   {/* Replace src with your actual photo */}
                   <img
-                    src="/avatar.jpg"
+                    src="../../public/profile.png"
                     alt="Akila Prabath"
                     className="about__avatar-img"
                     onError={(e) => { e.target.style.display = 'none' }}
                   />
                   {/* Fallback initials */}
-                  <div className="about__avatar-fallback" aria-hidden="true">AP</div>
+                  {/*<div className="about__avatar-fallback" aria-hidden="true">AP</div>*/}
                 </div>
               </div>
               {/* Floating glow ring */}
