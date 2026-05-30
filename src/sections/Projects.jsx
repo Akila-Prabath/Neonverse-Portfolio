@@ -47,20 +47,30 @@ export default function Projects() {
         <AnimatePresence mode="wait">
           <motion.div
             key={active}
-            className="projects__grid"
+            className={`projects__grid-wrap${filtered.length > 6 ? ' projects__grid-wrap--scroll' : ''}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
           >
-            {filtered.map((project, i) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                index={i}
-                inView={inView}
-              />
-            ))}
+            <div className="projects__grid">
+              {filtered.map((project, i) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  index={i}
+                  inView={inView}
+                />
+              ))}
+            </div>
+            {filtered.length > 6 && (
+              <div className="projects__scroll-hint" aria-hidden="true">
+                <span>Scroll to see more</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14">
+                  <path d="M12 5v14M5 12l7 7 7-7"/>
+                </svg>
+              </div>
+            )}
           </motion.div>
         </AnimatePresence>
 

@@ -114,6 +114,21 @@ export default function ProjectDetails() {
                   <p key={`${i}-${j}`} className="pd__para">{para.trim()}</p>
                 ))
               }
+              if (block.type === 'specifications') {
+                return (
+                  <div key={i} className="pd__specifications">
+                    {block.title && <h3 className="pd__specifications-title">{block.title}</h3>}
+                    <ul className="pd__specifications-list">
+                      {block.items.map((item, k) => (
+                        <li key={k} className="pd__specifications-item">
+                          <span className="pd__specifications-bullet" aria-hidden="true">▸</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )
+              }
               if (block.type === 'features') {
                 return (
                   <div key={i} className="pd__features">
