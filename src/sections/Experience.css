@@ -1,5 +1,6 @@
 /* ============================================================
-   Experience & Education Timeline
+   Experience & Education — Two-sided Timeline
+   Education LEFT  |  spine  |  Work/Experience RIGHT
    ============================================================ */
 
 .experience {
@@ -25,22 +26,79 @@
   background: linear-gradient(to top, var(--clr-bg-base), transparent);
 }
 
-/* --- Timeline wrapper --- */
+/* --- Legend --- */
+.tl-legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+  margin-bottom: var(--space-4);
+}
+
+.tl-legend__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--clr-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.tl-legend__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--clr-bg-base);
+  border: 2px solid var(--clr-accent);
+}
+
+.tl-legend__dot--work {
+  border-color: var(--clr-accent);
+}
+
+.tl-legend__divider {
+  width: 1px;
+  height: 16px;
+  background: var(--clr-border-subtle);
+}
+
+/* --- Column labels --- */
+.tl-cols-label {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 calc(50% - 1px);   /* aligns labels flush to each side of the spine */
+  margin-bottom: var(--space-8);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--clr-accent);
+  letter-spacing: 0.06em;
+  /* override padding for readability */
+  padding: 0;
+}
+
+.tl-cols-label span:first-child { color: var(--clr-accent);   }
+.tl-cols-label span:last-child  { color: var(--clr-accent);  }
+
+/* ============================================================
+   Two-column timeline layout
+   ============================================================ */
+
 .tl {
   position: relative;
-  padding-left: 52px;
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
-  max-width: 820px;
 }
 
-/* Spine line */
+/* Spine — runs full height down the exact centre */
 .tl__spine {
   position: absolute;
-  left: 17px;
-  top: 8px;
-  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  bottom: 0;
   width: 2px;
   background: linear-gradient(
     to bottom,
@@ -50,34 +108,65 @@
   );
   transform-origin: top;
   border-radius: var(--radius-full);
+  /* override translateX so scaleY works correctly */
+  left: calc(50% - 1px);
+  transform: none;
+  transform-origin: top center;
 }
 
-/* --- Timeline item --- */
-.tl-item {
-  position: relative;
-  display: flex;
+/* --- Each row --- */
+.tl-row {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr;
+  align-items: center;
   gap: 0;
+  min-height: 40px;
 }
 
-/* Dot */
+/* Left column — education */
+.tl-row__left {
+  padding-right: var(--space-8);
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Right column — work */
+.tl-row__right {
+  padding-left: var(--space-8);
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Spine column — just the dot */
+.tl-row__spine {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Dot --- */
 .tl-item__dot {
-  position: absolute;
-  left: -43px;
-  top: 20px;
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .tl-item__dot-inner {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: var(--clr-bg-base);
   border: 2px solid var(--clr-accent);
   transition: background var(--transition-fast), box-shadow var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.tl-item__dot-inner--edu {
+  border-color: var(--clr-accent);
 }
 
 .tl-item:hover .tl-item__dot-inner {
@@ -85,90 +174,117 @@
   box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
 }
 
-/* Card */
+.tl-item--edu:hover .tl-item__dot-inner {
+  background: var(--clr-accent);
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+/* --- Card --- */
+.tl-item {
+  width: 100%;
+  max-width: 480px;
+}
+
 .tl-item__card {
-  flex: 1;
   background: var(--clr-bg-elevated);
   border: 1px solid var(--clr-border-subtle);
   border-radius: var(--radius-lg);
-  padding: var(--space-6);
+  padding: var(--space-5) var(--space-6);
   transition: border-color var(--transition-base), box-shadow var(--transition-base);
 }
 
-.tl-item:hover .tl-item__card {
+.tl-item--work .tl-item__card {
+  border-left: 2px solid var(--clr-accent);
+}
+
+.tl-item--edu .tl-item__card {
+  border-right: 2px solid var(--clr-accent);
+  /* flip the accent side so it faces the spine */
+}
+
+.tl-item__card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.tl-item--work .tl-item__card:hover {
   border-color: var(--clr-accent-border);
   box-shadow: var(--shadow-accent);
 }
 
-/* Left accent line by type */
-.tl-item--work .tl-item__card  { border-left: 2px solid var(--clr-accent); }
-.tl-item--edu .tl-item__card   { border-left: 2px solid var(--clr-info); }
+.tl-item--edu .tl-item__card:hover {
+  border-color: rgba(0, 255, 136, 0.35);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.15);
+}
 
-/* Header row */
+/* Header */
 .tl-item__header {
   display: flex;
   align-items: flex-start;
-  gap: var(--space-4);
-  margin-bottom: var(--space-4);
-  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
 }
 
 /* Type badge */
 .tl-item__type-badge {
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   border-radius: var(--radius-md);
-  background: var(--clr-accent-muted);
-  border: 1px solid var(--clr-accent-border);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--clr-accent);
   flex-shrink: 0;
 }
-.tl-item__type-badge svg { width: 16px; height: 16px; }
+
+.tl-item--work .tl-item__type-badge {
+  background: var(--clr-accent-muted);
+  border: 1px solid var(--clr-accent-border);
+  color: var(--clr-accent);
+}
 
 .tl-item--edu .tl-item__type-badge {
-  background: rgba(58, 134, 255, 0.1);
-  border-color: rgba(58, 134, 255, 0.3);
-  color: var(--clr-info);
+  background: rgba(0, 255, 136, 0.1);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  color: var(--clr-accent);
 }
 
+.tl-item__type-badge svg { width: 15px; height: 15px; }
+
 /* Title group */
-.tl-item__title-group {
-  flex: 1;
-  min-width: 0;
-}
+.tl-item__title-group { flex: 1; min-width: 0; }
 
 .tl-item__title {
   font-family: var(--font-display);
-  font-size: var(--fs-lg);
+  font-size: var(--fs-base);
   font-weight: var(--fw-semibold);
   color: var(--clr-text-primary);
-  margin-bottom: var(--space-1);
   line-height: 1.3;
+  margin-bottom: var(--space-1);
 }
 
 .tl-item__org {
   font-size: var(--fs-sm);
-  color: var(--clr-accent);
   font-weight: var(--fw-medium);
 }
 
-/* Meta */
+.tl-item--work .tl-item__org { color: var(--clr-accent); }
+.tl-item--edu  .tl-item__org { color: var(--clr-accent); }
+
+/* Meta row */
 .tl-item__meta {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: var(--space-1);
-  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--clr-border-subtle);
 }
 
 .tl-item__period {
   font-family: var(--font-mono);
   font-size: var(--fs-xs);
   color: var(--clr-text-secondary);
-  white-space: nowrap;
   display: flex;
   align-items: center;
   gap: var(--space-2);
@@ -176,8 +292,7 @@
 
 .tl-item__current-dot {
   display: inline-block;
-  width: 7px;
-  height: 7px;
+  width: 7px; height: 7px;
   border-radius: 50%;
   background: var(--clr-accent);
   box-shadow: 0 0 6px rgba(0, 255, 136, 0.6);
@@ -190,14 +305,13 @@
   display: flex;
   align-items: center;
   gap: 3px;
-  white-space: nowrap;
 }
 
 /* Description */
 .tl-item__desc {
-  font-size: var(--fs-base);
+  font-size: var(--fs-sm);
   color: var(--clr-text-secondary);
-  line-height: 1.8;
+  line-height: 1.75;
   margin-bottom: var(--space-4);
 }
 
@@ -218,16 +332,76 @@
   border-radius: var(--radius-full);
   transition: color var(--transition-fast), border-color var(--transition-fast);
 }
-.tl-item:hover .tl-item__tag {
+
+.tl-item--work:hover .tl-item__tag {
   color: var(--clr-accent);
   border-color: var(--clr-accent-border);
 }
 
-/* --- Responsive --- */
-@media (max-width: 640px) {
-  .tl { padding-left: 36px; }
-  .tl-item__dot { left: -28px; }
-  .tl__spine    { left: 12px; }
-  .tl-item__header { flex-direction: column; gap: var(--space-3); }
-  .tl-item__meta   { align-items: flex-start; }
+.tl-item--edu:hover .tl-item__tag {
+  color: var(--clr-accent);
+  border-color: rgba(0, 255, 136, 0.35);
+}
+
+/* Certificate link */
+.tl-item__cert-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--clr-accent);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  background: rgba(0, 255, 136, 0.06);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+.tl-item__cert-link:hover {
+  background: rgba(0, 255, 136, 0.14);
+  border-color: rgba(0, 255, 136, 0.5);
+}
+
+/* ============================================================
+   Responsive — collapse to single column on mobile
+   ============================================================ */
+
+@media (max-width: 768px) {
+  /* Switch to left-aligned single column */
+  .tl {
+    padding-left: 36px;
+  }
+
+  .tl__spine {
+    left: 12px;
+  }
+
+  .tl-row {
+    grid-template-columns: 16px 1fr;
+    grid-template-rows: auto;
+    gap: 0;
+  }
+
+  .tl-row__left  { padding-right: 0; justify-content: flex-start; order: 2; grid-column: 2; }
+  .tl-row__right { padding-left: var(--space-5); justify-content: flex-start; order: 2; grid-column: 2; }
+  .tl-row__spine { order: 1; grid-column: 1; align-self: flex-start; padding-top: var(--space-5); }
+
+  /* Education cards come before work in DOM order — both just stack */
+  .tl-row--left  .tl-row__left,
+  .tl-row--right .tl-row__right { display: flex; }
+
+  /* Hide the empty opposing column cell */
+  .tl-row--left  .tl-row__right,
+  .tl-row--right .tl-row__left  { display: none; }
+
+  .tl-item { max-width: 100%; }
+
+  /* Flip edu card border to left on mobile */
+  .tl-item--edu .tl-item__card {
+    border-right: none;
+    border-left: 2px solid var(--clr-accent);
+  }
+
+  .tl-cols-label { display: none; }
 }

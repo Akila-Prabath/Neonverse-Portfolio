@@ -6,8 +6,8 @@ import './Hero.css'
 const ROLES = [
   'Software Engineer',
   'Full-Stack Developer',
-  'UI/UX Enthusiast',
-  'Open Source Contributor',
+  'AI/ML Developer',
+  'IOT Enthusiast',
 ]
 
 const FADE_UP = {
@@ -119,9 +119,7 @@ export default function Hero() {
           animate="visible"
           custom={0.65}
         >
-          Final year Software Engineering undergraduate at the University of Sri Jayewardenepura.
-          I build performant, accessible web experiences and love turning complex problems
-          into elegant solutions.
+          Software Engineering undergraduate at the University of Sri Jayewardenepura.
         </motion.p>
 
         {/* CTAs */}
