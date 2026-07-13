@@ -8,6 +8,73 @@
  */
 export const projects = [
   {
+  id: 'weather-app',
+  title: 'Weather App',
+  shortDesc:
+    'A cross-platform Flutter weather application that provides real-time weather conditions and 5-day forecasts using the OpenWeatherMap API.',
+
+  longDesc: [
+    {
+      type: 'text',
+      content: `A modern weather application built with Flutter that delivers real-time weather information through the OpenWeatherMap API. The application features a clean and responsive user interface with current weather conditions, hourly forecasts, and a 5-day weather forecast.
+
+The project follows a scalable architecture using Riverpod for state management, integrates REST APIs for live weather data, and provides a smooth user experience across Android devices. It demonstrates mobile application development best practices, API integration, and responsive UI design.`,
+    },
+    {
+      type: 'features',
+      title: 'Key Features',
+      items: [
+        'Real-time weather information using OpenWeatherMap API.',
+        'Current temperature, humidity, wind speed, and weather conditions.',
+        'Hourly weather forecast.',
+        '5-day weather forecast.',
+        'Search weather by city name.',
+        'Modern responsive Flutter UI with Riverpod state management.',
+      ],
+    },
+    {
+      type: 'features',
+      title: 'Technologies Used',
+      items: [
+        'Flutter',
+        'Dart',
+        'Riverpod',
+        'REST API',
+        'OpenWeatherMap API',
+      ],
+    },
+  ],
+
+  tags: [
+    'Flutter',
+    'Dart',
+    'Riverpod',
+    'REST API',
+    'OpenWeatherMap',
+    'Mobile Development',
+  ],
+
+  category: 'mobile',
+
+  publication: false,
+  featured: false,
+
+  liveUrl: '',
+  githubUrl: 'https://github.com/Akila-Prabath/Weather-App',
+
+  image: '../../public/projects/weather-app.png',
+
+  highlights: [
+    'Built with Flutter and Riverpod',
+    'Integrated OpenWeatherMap REST API',
+    'Real-time weather and 5-day forecasts',
+    'Responsive cross-platform mobile application',
+  ],
+
+  year: '2026',
+},
+
+  {
     id: 'counseling-platform',
     title: 'Mindcare - Student Counseling System',
     shortDesc: 'A MERN stack–based Student Counseling and Mental Health Support Portal.',

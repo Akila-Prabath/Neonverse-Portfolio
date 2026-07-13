@@ -5,7 +5,7 @@ import './About.css'
 
 const STATS = [
   { value: '3+',  label: 'Years coding' },
-  { value: '15+', label: 'Projects built' },
+  { value: '10+', label: 'Projects built' },
   { value: '5+',  label: 'Technologies' },
   { value: '∞',   label: 'Cups of coffee' },
 ]
@@ -35,34 +35,31 @@ export default function About() {
               variants={FADE_UP} initial="hidden"
               animate={inView ? 'visible' : 'hidden'} custom={0}
             >
-              Hey! I'm <span className="text-accent">Akila Prabath</span>, a final-year
-              Software Engineering undergraduate at the{' '}
-              <span className="text-accent">University of Sri Jayewardenepura</span>.
-              I'm passionate about crafting high-performance web applications that
-              sit at the intersection of clean engineering and thoughtful design.
+              Hey! I'm <span className="text-accent">Akila Prabath</span>, a final-year Bachelor of Computing (Honours) in Software Engineering undergraduate 
+              at the <span className="text-accent">University of Sri Jayewardenepura</span>. I enjoy building reliable, user-centered software and 
+              continuously learning new technologies to solve real-world problems.
             </motion.p>
 
             <motion.p
               variants={FADE_UP} initial="hidden"
               animate={inView ? 'visible' : 'hidden'} custom={1}
             >
-              My journey started with curiosity — tinkering with HTML in a school
-              computer lab — and has since evolved into a deep love for the full
-              stack: React frontends, Spring Boot &amp; Node.js backends, cloud
-              deployments, and everything in between.
+              My interests span Software Engineering, Artificial Intelligence, Machine Learning, and Mobile Application Development. 
+              I've worked on web, mobile, and AI-based projects using technologies such as Java, Python, JavaScript, React, Flutter, Laravel, Node.js, and TensorFlow, 
+              while applying software engineering best practices and testing methodologies.
             </motion.p>
 
             <motion.p
               variants={FADE_UP} initial="hidden"
               animate={inView ? 'visible' : 'hidden'} custom={2}
             >
-              When I'm not writing code, you'll find me exploring 3D graphics,
-              contributing to open-source projects, or chasing the perfect espresso.
-              I'm actively looking for internship &amp; graduate opportunities where
-              I can grow fast and ship meaningful products.
+              I'm currently seeking internship and graduate opportunities where I can contribute 
+              to meaningful projects, collaborate with experienced teams, and continue growing as a 
+              Software Engineer or AI/ML Engineer.
             </motion.p>
 
             {/* Highlights */}
+            {/*
             <motion.ul
               className="about__highlights"
               variants={FADE_UP} initial="hidden"
@@ -79,7 +76,7 @@ export default function About() {
                   {item}
                 </li>
               ))}
-            </motion.ul>
+            </motion.ul>*/}
           </div>
 
           {/* Visual column */}
@@ -95,7 +92,7 @@ export default function About() {
                 <div className="about__avatar-inner">
                   {/* Replace src with your actual photo */}
                   <img
-                    src="../../public/profile.png"
+                    src="../../public/profile.jpeg"
                     alt="Akila Prabath"
                     className="about__avatar-img"
                     onError={(e) => { e.target.style.display = 'none' }}

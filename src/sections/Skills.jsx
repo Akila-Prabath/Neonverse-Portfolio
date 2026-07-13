@@ -1,15 +1,20 @@
 import { useRef, useState } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import {
-  FaReact, FaNodeJs, FaJava, FaPython, FaAws,
-  FaGitAlt, FaGithub, FaLinux,
+  FaReact,
+  FaNodeJs,
+  FaJava,
+  FaPython,
+  FaGitAlt,
+  FaGithub,
+  FaLinux,
 } from 'react-icons/fa'
 import {
-  SiJavascript, SiTypescript, SiHtml5, SiCss,
-  SiTailwindcss, SiThreedotjs, SiFramer,
-  SiExpress, SiSpringboot, SiGraphql,
-  SiMysql, SiMongodb, SiPostgresql, SiFirebase,
-  SiDocker, SiFigma, SiJira, SiJest,
+  SiJavascript, SiHtml5, SiCss, SiTailwindcss, SiFlutter, SiBootstrap,
+  SiVite, SiExpress, SiLaravel, SiMysql, SiMongodb, SiPostgresql, SiFirebase,
+  SiDocker, SiFigma, SiPhp, SiDart, SiTensorflow, SiScikitlearn, SiOpencv, SiPandas,
+  SiNumpy, SiJupyter, SiAndroidstudio, SiPostman, SiVitest,
+  SiTestinglibrary, SiSelenium,
 } from 'react-icons/si'
 import { TbApi } from 'react-icons/tb'
 import { skillCategories } from '../constants/skills'
@@ -18,14 +23,56 @@ import './Skills.css'
 
 /* Map icon string → component */
 const ICON_MAP = {
-  FaReact, FaNodeJs, FaJava, FaPython, FaAws,
-  FaGitAlt, FaGithub, FaLinux,
-  SiJavascript, SiTypescript, SiHtml5, SiCss3: SiCss,
-  SiTailwindcss, SiThreedotjs, SiFramer,
-  SiExpress, SiSpringboot, SiGraphql,
-  SiMysql, SiMongodb, SiPostgresql, SiFirebase,
-  SiDocker, SiFigma, SiJira, SiJest,
+  // Languages
+  FaJava,
+  FaPython,
+  SiJavascript,
+  SiPhp,
+  SiDart,
+  SiMysql, // Used for SQL icon
+
+  // Frontend
+  FaReact,
+  SiFlutter,
+  SiHtml5,
+  SiCss3: SiCss,
+  SiTailwindcss,
+  SiBootstrap,
+  SiVite,
+
+  // Backend
+  FaNodeJs,
+  SiExpress,
+  SiLaravel,
   TbApi,
+
+  // Database
+  SiMysql,
+  SiMongodb,
+  SiPostgresql,
+  SiFirebase,
+
+  // AI / ML
+  SiTensorflow,
+  SiScikitlearn,
+  SiOpencv,
+  SiPandas,
+  SiNumpy,
+  SiJupyter,
+
+  // Tools
+  FaGitAlt,
+  FaGithub,
+  SiDocker,
+  FaLinux,
+  SiAndroidstudio,
+  SiPostman,
+  SiFigma,
+
+  // Testing
+  SiVitest,
+  SiTestinglibrary,
+  SiSelenium,
 }
 
 function SkillCard({ skill, index, inView }) {
@@ -113,6 +160,7 @@ export default function Skills() {
         </AnimatePresence>
 
         {/* All-tech ribbon */}
+        {/*
         <motion.div
           className="skills__ribbon"
           initial={{ opacity: 0 }}
@@ -126,7 +174,7 @@ export default function Skills() {
               <span key={t} className="skills__tag">{t}</span>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   )
