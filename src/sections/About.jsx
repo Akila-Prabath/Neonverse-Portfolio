@@ -92,7 +92,7 @@ export default function About() {
                 <div className="about__avatar-inner">
                   {/* Replace src with your actual photo */}
                   <img
-                    src="../../public/profile.jpeg"
+                    src="/profile.jpeg"
                     alt="Akila Prabath"
                     className="about__avatar-img"
                     onError={(e) => { e.target.style.display = 'none' }}

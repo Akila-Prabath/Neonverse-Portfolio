@@ -62,7 +62,7 @@ The project follows a scalable architecture using Riverpod for state management,
   liveUrl: '',
   githubUrl: 'https://github.com/Akila-Prabath/Weather-App',
 
-  image: '../../public/projects/weather-app.png',
+  image: '/projects/weather-app.png',
 
   highlights: [
     'Built with Flutter and Riverpod',
@@ -99,7 +99,7 @@ The project follows a scalable architecture using Riverpod for state management,
     featured: false,
     //liveUrl: 'https://neoshop-demo.vercel.app',
     githubUrl: 'https://github.com/Akila-Prabath/Student-Counseling-System',
-    image: '../../public/projects/counseling.png',
+    image: '/projects/counseling.png',
     highlights: [
       'JWT authentication & authorization',
       'Password hashing using bcrypt',
@@ -138,7 +138,7 @@ The review analyses the current landscape of sign language recognition and gener
     featured: false,
     liveUrl: '',
     githubUrl: '',
-    image: '../../public/projects/research.png',
+    image: '/projects/research.png',
     highlights: [
       'Published under Independent Research Studies module',
       'Focus on Sinhala — a low-resource language',
@@ -173,7 +173,7 @@ The review analyses the current landscape of sign language recognition and gener
     featured: false,
     //liveUrl: 'https://taskflow-demo.vercel.app',
     githubUrl: 'https://github.com/Akila-Prabath/Sinhala-Sentiment-Analysis',
-    image: '../../public/projects/sentiment.png',
+    image: '/projects/sentiment.png',
     highlights: [
       'Data preprocessing',
       'Tokenization & padding',
@@ -210,7 +210,7 @@ The review analyses the current landscape of sign language recognition and gener
     featured: false,
     //liveUrl: 'https://devblog-demo.vercel.app',
     githubUrl: 'https://github.com/Akila-Prabath/Cat-Dog-classifier',
-    image: '../../public/projects/cat-dog.png',
+    image: '/projects/cat-dog.png',
     highlights: [
       'Data preprocessing',
       'Data augmentation',
@@ -245,7 +245,7 @@ The review analyses the current landscape of sign language recognition and gener
     featured: false,
     liveUrl: 'https://akila-prabath.github.io/sinhala-tts-stt-web/',
     githubUrl: 'https://github.com/Akila-Prabath/sinhala-tts-stt-web',
-    image: '../../public/projects/sinhala-tts.png',
+    image: '/projects/sinhala-tts.png',
     highlights: [
       'Text to Speech',
       'Speech to Text',
@@ -295,7 +295,7 @@ The review analyses the current landscape of sign language recognition and gener
     featured: false,
     //liveUrl: 'https://akilaprabath.dev',
     githubUrl: 'https://github.com/Akila-Prabath/Heart-Attack-Predictor',
-    image: '../../public/projects/heart.png',
+    image: '/projects/heart.png',
     highlights: [
       'Data cleaning and preprocessing',
       'Feature engineering and feature selection',
@@ -345,7 +345,7 @@ The review analyses the current landscape of sign language recognition and gener
     featured: false,
     //liveUrl: 'https://akilaprabath.dev',
     githubUrl: 'https://github.com/Akila-Prabath/Laptop-Price-Predictor',
-    image: '../../public/projects/laptop.png',
+    image: '/projects/laptop.png',
     highlights: [
       'Data preprocessing',
       'Feature engineering',
@@ -396,7 +396,7 @@ The review analyses the current landscape of sign language recognition and gener
     featured: false,
     //liveUrl: 'https://akilaprabath.dev',
     githubUrl: 'https://github.com/Akila-Prabath/Ecommerce-Web',
-    image: '../../public/projects/',
+    //image: '/projects/',
     highlights: [
       'Security-focused development',
       'vulnerability analysis',
@@ -446,7 +446,7 @@ The review analyses the current landscape of sign language recognition and gener
     featured: false,
     //liveUrl: 'https://akilaprabath.dev',
     githubUrl: 'https://github.com/Akila-Prabath/nextapp',
-    image: '../../public/projects/mealmate.png',
+    image: '/projects/mealmate.png',
     highlights: [
       'User authentication',
       'Unit Testing',
