@@ -22,6 +22,25 @@ export const timeline = [
     tags: ['Deep Learning', 'Python', 'Software Architecture'],
   },
 
+  {
+    id: 'coursera-google-ai',
+    type: 'education',
+    title: 'Google AI Professional Certificate',
+    organisation: 'Coursera — Google',
+    location: 'Online',
+    period: '2026',
+    current: false,
+    description:
+      'Completed the Google AI Professional Certificate, gaining practical knowledge of generative AI, prompt engineering, responsible AI, AI-powered productivity, and applying AI tools to solve real-world software engineering and business problems.',
+    tags: [
+      'Artificial Intelligence',
+      'Generative AI',
+      'Prompt Engineering',
+      'Google AI'
+    ],
+    certificate: 'https://coursera.org/verify/YOUR_CERTIFICATE_ID', // Replace with your certificate URL
+  },
+
   /* ── WORK (right) ───────────────────────────────────────── */
   {
     id: 'heart-attack-predictor',
@@ -52,17 +71,24 @@ export const timeline = [
 
   /* ── EDUCATION (left) ──────────────────────────────────── */
   {
-    id: 'coursera-meta-react',
+    id: 'coursera-programming-python',
     type: 'education',
-    title: 'Meta Front-End Developer Certificate',
+    title: 'Programming in Python',
     organisation: 'Coursera — Meta',
     location: 'Online',
-    period: '2024',
+    period: '2025',
     current: false,
     description:
-      'Completed the Meta Front-End Developer professional certificate covering React fundamentals, component design, state management, testing, and UX principles.',
-    tags: ['React', 'JavaScript', 'HTML', 'CSS', 'UX'],
-    certificate: 'https://coursera.org/verify/your-cert-id', // replace with real URL
+      'Completed the Programming in Python course, developing a strong foundation in Python programming, object-oriented programming, file handling, exception handling, data structures, and writing clean, reusable code to solve real-world programming problems.',
+    tags: [
+      'Python',
+      'Object-Oriented Programming',
+      'Data Structures',
+      'File Handling',
+      'Exception Handling',
+      'Problem Solving'
+    ],
+    certificate: 'https://coursera.org/verify/8UC1JN5JTFDV', // Replace with your certificate URL
   },
 
   /* ── WORK (right) ───────────────────────────────────────── */
@@ -81,20 +107,48 @@ export const timeline = [
 
   /* ── EDUCATION (left) ──────────────────────────────────── */
   {
-    id: 'coursera-meta-backend',
+    id: 'coursera-intro-web-development',
     type: 'education',
-    title: 'Meta Back-End Developer Certificate',  // replace with your actual course
-    organisation: 'Coursera — Meta',               // replace with actual provider
+    title: 'Introduction to Web Development with HTML, CSS, JavaScript',
+    organisation: 'Coursera — IBM',
     location: 'Online',
-    period: '2023',
+    period: '2024',
     current: false,
     description:
-      'Completed an online professional certificate covering back-end development concepts including APIs, databases, version control, and cloud deployment fundamentals.',
-    tags: ['Python', 'Django', 'APIs', 'Databases', 'Git'],
-    certificate: 'https://coursera.org/verify/your-cert-id', // replace with real URL
+      'Completed the Introduction to Web Development with HTML, CSS, JavaScript course, gaining a solid foundation in front-end web development, including semantic HTML, responsive CSS, JavaScript fundamentals, DOM manipulation, and building interactive web pages.',
+    tags: [
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'Responsive Web Design',
+      'DOM Manipulation',
+      'Front-End Development'
+    ],
+    certificate: 'https://coursera.org/verify/YS1JUGZGTSK5B', // Replace with your certificate URL
   },
 
-  /* ── WORK (right) ───────────────────────────────────────── */
+  {
+    id: 'coursera-wordpress-website',
+    type: 'education',
+    title: 'Build a Full Website using WordPress',
+    organisation: 'Coursera — Coursera Project Network',
+    location: 'Online',
+    period: '2024',
+    current: false,
+    description:
+      'Completed the Build a Full Website using WordPress guided project, gaining hands-on experience in designing and developing a responsive website using WordPress, including page creation, theme customization, navigation, plugins, and website publishing.',
+    tags: [
+      'WordPress',
+      'Website Development',
+      'CMS',
+      'Responsive Design',
+      'Web Design',
+      'Plugins'
+    ],
+    certificate: 'https://coursera.org/verify/GL8JLIX68D79', // Replace with your certificate URL
+  },
+
+  /* ── WORK (right) ───────────────────────────────────────── 
   {
     id: 'freelance',
     type: 'work',
@@ -106,14 +160,14 @@ export const timeline = [
     description:
       'Built and maintained web applications for small businesses and startups in Sri Lanka. Projects ranged from landing pages and e-commerce stores to custom admin dashboards. All delivered on time and within budget.',
     tags: ['React', 'Next.js', 'Firebase', 'Tailwind'],
-  },
+  },*/
 
   /* ── EDUCATION (left) ──────────────────────────────────── */
   {
     id: 'alevel',
     type: 'education',
     title: 'A/L — Physical Science Stream',
-    organisation: 'Your School Name',  // replace with your school
+    organisation: 'Maliyadewa Adarsha Maha Vidyalaya ',  // replace with your school
     location: 'Sri Lanka',
     period: '2019 — 2021',
     current: false,
