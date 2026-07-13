@@ -87,7 +87,7 @@ export default function Navbar() {
             </button>
           ))}
           <a
-            href="/resume.pdf"
+            href="/akila_resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="navbar__resume"

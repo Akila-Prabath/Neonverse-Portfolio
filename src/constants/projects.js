@@ -8,8 +8,175 @@
  */
 export const projects = [
   {
+  id: 'sinhala-sign-language-translator',
+
+  title: 'Sinhala Speech and Text to Sinhala Sign Language Translator',
+
+  shortDesc:
+    'An ongoing final-year research project that translates Sinhala speech and text into Sinhala Sign Language using NLP, AI, and real-time 3D avatar animation.',
+
+  longDesc: [
+    {
+      type: 'text',
+      content: `This is my Final Year Research Project, focused on improving communication accessibility for the Deaf and speech-impaired community in Sri Lanka. The proposed system converts Sinhala speech or text into Sinhala Sign Language (SSL) through an intelligent pipeline that combines speech recognition, Natural Language Processing (NLP), multilingual translation, and real-time 3D avatar animation.
+
+The system is being developed as a cross-platform Flutter application with a Python FastAPI backend. It leverages the SSL400 dataset, OpenAI Whisper, Google Speech-to-Text, Google Translate API, MediaPipe pose keypoints, and Unity WebGL/Three.js to generate realistic Sinhala Sign Language animations. The project also includes bidirectional communication support through Sinhala text-to-speech synthesis and is currently under active development as part of my undergraduate research.`,
+    },
+
+    {
+      type: 'features',
+      title: 'Planned Features',
+      items: [
+        'Sinhala speech-to-text conversion using OpenAI Whisper and Google Speech-to-Text.',
+        'Sinhala text processing using Natural Language Processing (NLP).',
+        'English-to-Sinhala translation support for multilingual accessibility.',
+        'Real-time Sinhala Sign Language generation using a 3D avatar.',
+        'Pose-based avatar animation using the SSL400 dataset and MediaPipe keypoints.',
+        'Text-to-speech support for bidirectional communication.',
+        'Cross-platform Flutter mobile application for Android and iOS.',
+      ],
+    },
+
+    {
+      type: 'features',
+      title: 'Technologies Used',
+      items: [
+        'Flutter',
+        'Dart',
+        'Python',
+        'FastAPI',
+        'OpenAI Whisper',
+        'Google Speech-to-Text',
+        'Google Translate API',
+        'Google Cloud Text-to-Speech',
+        'TensorFlow Lite',
+        'Firebase Firestore',
+        'MediaPipe',
+        'Three.js',
+        'Unity WebGL',
+        'SSL400 Dataset',
+      ],
+    },
+  ],
+
+  tags: [
+    'Final Year Project',
+    'Research',
+    'Flutter',
+    'NLP',
+    'Artificial Intelligence',
+    'Speech Recognition',
+    'Sign Language',
+    '3D Avatar',
+    'Python',
+    'FastAPI',
+    'TensorFlow Lite',
+    'Accessibility',
+  ],
+
+  category: 'research',
+
+  publication: false,
+  featured: false,
+
+  liveUrl: '',
+
+  githubUrl:
+    'https://github.com/Akila-Prabath/sinhala-sign-language-translator',
+
+  image: '/projects/fyp.png',
+
+  highlights: [
+    '🎓 Final Year Research Project',
+    '🚧 Currently under active development',
+    'AI-powered Sinhala Speech & Text to Sign Language Translation',
+    'Real-time 3D Avatar Animation using SSL400',
+    'Focused on improving accessibility for the Deaf community',
+  ],
+
+  year: '2026',
+
+  status: 'Ongoing',
+},
+
+
+  {
+  id: 'agrolens',
+  title: 'AgroLens',
+  shortDesc:
+    'An AI-powered Flutter mobile application for rice leaf disease detection using TensorFlow Lite, providing instant predictions and crop management recommendations. (Ongoing)',
+
+  longDesc: [
+    {
+      type: 'text',
+      content: `AgroLens is an ongoing AI-powered mobile application designed to assist farmers in identifying rice leaf diseases using deep learning. Users can capture or upload images of rice leaves, and the application performs on-device disease classification using a TensorFlow Lite model.
+
+The project combines Flutter for cross-platform mobile development with TensorFlow for model training and TensorFlow Lite for efficient mobile inference. It follows a modular architecture using Riverpod for state management and demonstrates the complete AI development pipeline, including dataset preprocessing, model training, evaluation, optimization, and mobile integration.`,
+    },
+    {
+      type: 'features',
+      title: 'Current Features',
+      items: [
+        'Capture or upload rice leaf images for disease detection.',
+        'On-device disease prediction using TensorFlow Lite.',
+        'Disease confidence score visualization.',
+        'Crop management and treatment recommendations.',
+        'Clean and responsive Flutter user interface.',
+        'Riverpod state management for scalable application architecture.',
+      ],
+    },
+    {
+      type: 'features',
+      title: 'Technologies Used',
+      items: [
+        'Flutter',
+        'Dart',
+        'TensorFlow',
+        'TensorFlow Lite',
+        'Python',
+        'OpenCV',
+        'Scikit-learn',
+        'NumPy',
+        'Pandas',
+        'Riverpod',
+      ],
+    },
+  ],
+
+  tags: [
+    'Flutter',
+    'TensorFlow',
+    'TensorFlow Lite',
+    'Computer Vision',
+    'Deep Learning',
+    'Mobile Development',
+    'AI',
+    'Machine Learning',
+  ],
+
+  category: 'mobile',
+
+  publication: false,
+  featured: false,
+
+  liveUrl: '',
+  githubUrl: 'https://github.com/Akila-Prabath/AgroLens',
+
+  image: '/projects/agrolens.png',
+
+  highlights: [
+    '🚧 Ongoing project',
+    'AI-powered rice leaf disease detection',
+    'TensorFlow Lite on-device inference',
+    'Cross-platform Flutter application',
+  ],
+
+  year: '2026',
+},
+
+  {
   id: 'weather-app',
-  title: 'Weather App',
+  title: 'SkyCast - Weather App',
   shortDesc:
     'A cross-platform Flutter weather application that provides real-time weather conditions and 5-day forecasts using the OpenWeatherMap API.',
 
@@ -396,7 +563,7 @@ The review analyses the current landscape of sign language recognition and gener
     featured: false,
     //liveUrl: 'https://akilaprabath.dev',
     githubUrl: 'https://github.com/Akila-Prabath/Ecommerce-Web',
-    //image: '/projects/',
+    image: '/projects/ecommerce.png',
     highlights: [
       'Security-focused development',
       'vulnerability analysis',
