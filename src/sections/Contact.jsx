@@ -5,6 +5,15 @@ import './Contact.css'
 
 const INIT = { name: '', email: '', subject: '', message: '' }
 
+// ─── Replace this with your Formspree form ID ───────────────
+// 1. Go to https://formspree.io → sign up free
+// 2. New Form → copy the ID from your endpoint URL
+// 3. Paste it here, e.g. 'xpwzgkrb'
+const FORMSPREE_ID = 'xjgnvqnl'
+// ────────────────────────────────────────────────────────────
+
+const YOUR_EMAIL = 'wmaprabhath@gmail.com'
+
 const SOCIAL_LINKS = [
   {
     label: 'GitHub',
@@ -26,7 +35,7 @@ const SOCIAL_LINKS = [
   },
   {
     label: 'Email',
-    href: 'mailto:wmakilaprabhath@gmail.com',
+    href: `mailto:${YOUR_EMAIL}`,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <rect width="20" height="16" x="2" y="4" rx="2"/>
@@ -42,17 +51,17 @@ export default function Contact() {
 
   const [form,    setForm]    = useState(INIT)
   const [errors,  setErrors]  = useState({})
-  const [status,  setStatus]  = useState('idle') // idle | sending | sent | error
+  const [status,  setStatus]  = useState('idle') // idle | sending | sent | error | no-formspree
   const [focused, setFocused] = useState('')
 
   /* --- Validation --- */
   const validate = () => {
     const e = {}
-    if (!form.name.trim())                        e.name    = 'Name is required'
-    if (!form.email.trim())                       e.email   = 'Email is required'
+    if (!form.name.trim())    e.name    = 'Name is required'
+    if (!form.email.trim())   e.email   = 'Email is required'
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = 'Enter a valid email'
-    if (!form.subject.trim())                     e.subject = 'Subject is required'
-    if (form.message.trim().length < 20)          e.message = 'Message must be at least 20 characters'
+    if (!form.subject.trim()) e.subject = 'Subject is required'
+    if (form.message.trim().length < 20) e.message = 'Message must be at least 20 characters'
     return e
   }
 
@@ -62,15 +71,21 @@ export default function Contact() {
     if (errors[name]) setErrors((ev) => ({ ...ev, [name]: '' }))
   }
 
-  /* --- Submit — uses Formspree, swap in your endpoint --- */
+  /* --- Submit --- */
   const handleSubmit = async (e) => {
     e.preventDefault()
     const errs = validate()
     if (Object.keys(errs).length) { setErrors(errs); return }
 
+    // Guard: Formspree ID not yet configured
+    if (!FORMSPREE_ID || FORMSPREE_ID === 'YOUR_FORM_ID') {
+      setStatus('no-formspree')
+      return
+    }
+
     setStatus('sending')
     try {
-      const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(form),
@@ -235,9 +250,28 @@ export default function Contact() {
                   {errors.message && <span className="contact__error" role="alert">{errors.message}</span>}
                 </div>
 
+                {/* Error states */}
+                {status === 'no-formspree' && (
+                  <div className="contact__submit-error" role="alert">
+                    <strong>Form not configured yet.</strong> To enable email sending:
+                    <ol className="contact__setup-steps">
+                      <li>Go to <a href="https://formspree.io" target="_blank" rel="noopener noreferrer">formspree.io</a> and create a free account</li>
+                      <li>Create a new form and copy your Form ID</li>
+                      <li>Replace <code>YOUR_FORM_ID</code> at the top of <code>Contact.jsx</code></li>
+                    </ol>
+                    In the meantime, email me directly at{' '}
+                    <a href={`mailto:${YOUR_EMAIL}`} className="contact__error-link">
+                      {YOUR_EMAIL}
+                    </a>
+                  </div>
+                )}
+
                 {status === 'error' && (
                   <p className="contact__submit-error" role="alert">
-                    Something went wrong. Please email me directly at wmakilaprabhath@gmail.com
+                    Something went wrong. Please email me directly at{' '}
+                    <a href={`mailto:${YOUR_EMAIL}`} className="contact__error-link">
+                      {YOUR_EMAIL}
+                    </a>
                   </p>
                 )}
 
@@ -254,7 +288,8 @@ export default function Contact() {
                   ) : (
                     <>
                       Send Message
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="16" height="16" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+                        strokeLinecap="round" strokeLinejoin="round" width="16" height="16" aria-hidden="true">
                         <line x1="22" y1="2" x2="11" y2="13"/>
                         <polygon points="22 2 15 22 11 13 2 9 22 2"/>
                       </svg>

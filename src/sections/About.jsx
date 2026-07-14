@@ -5,7 +5,7 @@ import './About.css'
 
 const STATS = [
   { value: '3+',  label: 'Years coding' },
-  { value: '10+', label: 'Projects built' },
+  { value: '12+', label: 'Projects built' },
   { value: '5+',  label: 'Technologies' },
   { value: '∞',   label: 'Cups of coffee' },
 ]
