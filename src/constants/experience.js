@@ -65,7 +65,7 @@ export const timeline = [
     'API Testing',
     'Manual Testing'
   ],
-  certificate: 'https://coursera.org/verify/QL6W50V3IFA5', // Replace with your certificate URL
+  certificate: 'Verify this certificate at:https://coursera.org/verify/specialization/QL6W50V3IFA5', // Replace with your certificate URL
 },
 
   {
