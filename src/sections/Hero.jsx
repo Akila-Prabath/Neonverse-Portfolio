@@ -5,9 +5,9 @@ import './Hero.css'
 
 const ROLES = [
   'Software Engineer',
-  'Full-Stack Developer',
-  'AI/ML Developer',
-  'IOT Enthusiast',
+  'SDET',
+  'Automation QA Engineer',
+  'Machine Learning Engineer',
 ]
 
 const FADE_UP = {

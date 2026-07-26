@@ -23,6 +23,52 @@ export const timeline = [
   },
 
   {
+  id: 'coursera-ibm-cicd',
+  type: 'education',
+  title: 'Continuous Integration and Continuous Delivery (CI/CD)',
+  organisation: 'Coursera — IBM',
+  location: 'Online',
+  period: '2026',
+  current: false,
+  description:
+    'Completed the IBM Continuous Integration and Continuous Delivery (CI/CD) course, gaining hands-on experience in building automated CI/CD pipelines using GitHub Actions, Tekton, Docker, Kubernetes, and OpenShift. Developed and deployed a Node.js application through automated linting, testing, container image building, and continuous deployment as part of the course final project.',
+  tags: [
+    'CI/CD',
+    'GitHub Actions',
+    'Tekton',
+    'OpenShift',
+    'Docker',
+    'Kubernetes',
+    'DevOps',
+    'Git'
+  ],
+  certificate: 'https://coursera.org/verify/GD64ZC40JMHE', // Replace with your certificate URL
+},
+
+  {
+  id: 'coursera-software-qa-test-automation',
+  type: 'education',
+  title: 'Software QA & Test Automation Engineering',
+  organisation: 'Coursera',
+  location: 'Online',
+  period: '2026',
+  current: false,
+  description:
+    'Completed the Software QA & Test Automation Engineering course, gaining practical experience in software testing fundamentals, test case design, quality assurance processes, manual and automated testing, API testing, CI/CD integration, GitHub Actions, Selenium WebDriver, and industry best practices for delivering high-quality software.',
+  tags: [
+    'Software Testing',
+    'Quality Assurance',
+    'Test Automation',
+    'Selenium',
+    'GitHub Actions',
+    'CI/CD',
+    'API Testing',
+    'Manual Testing'
+  ],
+  certificate: 'https://coursera.org/verify/QL6W50V3IFA5', // Replace with your certificate URL
+},
+
+  {
     id: 'coursera-google-ai',
     type: 'education',
     title: 'Google AI Professional Certificate',
@@ -38,7 +84,7 @@ export const timeline = [
       'Prompt Engineering',
       'Google AI'
     ],
-    certificate: 'https://coursera.org/verify/YOUR_CERTIFICATE_ID', // Replace with your certificate URL
+    certificate: 'https://coursera.org/verify/4CGPJOC2FB7P', // Replace with your certificate URL
   },
 
   /* ── WORK (right) ───────────────────────────────────────── */
